@@ -4,7 +4,7 @@
 //
 
 import UIKit
-import Nuke
+import NukeExtensions
 
 class ViewController: UIViewController, UITableViewDataSource {
     
@@ -15,9 +15,16 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("🍏 cellForRowAt called for row: \(indexPath.row)")
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         let movie = movies[indexPath.row]
-        cell.textLabel?.text = movie.title
+        
+        if let posterPath = movie.poster_path, let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath) {
+            NukeExtensions.loadImage(with: imageUrl, into: cell.posterImageView)
+        }
+        
+        cell.titleLabel.text = movie.title
+        cell.overviewLabel.text = movie.overview
+        
         return cell
     }
 

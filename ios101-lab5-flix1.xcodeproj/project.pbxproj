@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		150913502BA682BE00236E14 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509134F2BA682BE00236E14 /* MovieCell.swift */; };
+		1509135A2BA687AF00236E14 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 150913592BA687AF00236E14 /* Nuke */; };
+		1509135C2BA687AF00236E14 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 1509135B2BA687AF00236E14 /* NukeExtensions */; };
+		1509135E2BA687AF00236E14 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1509135D2BA687AF00236E14 /* NukeUI */; };
+		150913602BA687AF00236E14 /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 1509135F2BA687AF00236E14 /* NukeVideo */; };
 		ED83EE9A29B05FCE007A4FC9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83EE9929B05FCE007A4FC9 /* Movie.swift */; };
-		ED83EE9D29B06A4C007A4FC9 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = ED83EE9C29B06A4C007A4FC9 /* Nuke */; };
 		ED88ABF229AD9858008A6FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED88ABF129AD9858008A6FF6 /* AppDelegate.swift */; };
 		ED88ABF429AD9858008A6FF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED88ABF329AD9858008A6FF6 /* SceneDelegate.swift */; };
 		ED88ABF629AD9858008A6FF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED88ABF529AD9858008A6FF6 /* ViewController.swift */; };
@@ -36,7 +39,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED83EE9D29B06A4C007A4FC9 /* Nuke in Frameworks */,
+				1509135E2BA687AF00236E14 /* NukeUI in Frameworks */,
+				1509135A2BA687AF00236E14 /* Nuke in Frameworks */,
+				1509135C2BA687AF00236E14 /* NukeExtensions in Frameworks */,
+				150913602BA687AF00236E14 /* NukeVideo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +98,10 @@
 			);
 			name = "ios101-lab5-flix1";
 			packageProductDependencies = (
-				ED83EE9C29B06A4C007A4FC9 /* Nuke */,
+				150913592BA687AF00236E14 /* Nuke */,
+				1509135B2BA687AF00236E14 /* NukeExtensions */,
+				1509135D2BA687AF00236E14 /* NukeUI */,
+				1509135F2BA687AF00236E14 /* NukeVideo */,
 			);
 			productName = "ios101-lab5-flix1";
 			productReference = ED88ABEE29AD9858008A6FF6 /* ios101-lab5-flix1.app */;
@@ -123,7 +132,7 @@
 			);
 			mainGroup = ED88ABE529AD9858008A6FF6;
 			packageReferences = (
-				ED83EE9B29B06A4C007A4FC9 /* XCRemoteSwiftPackageReference "Nuke" */,
+				150913582BA687AF00236E14 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = ED88ABEF29AD9858008A6FF6 /* Products */;
 			projectDirPath = "";
@@ -374,21 +383,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ED83EE9B29B06A4C007A4FC9 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+		150913582BA687AF00236E14 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 12.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		ED83EE9C29B06A4C007A4FC9 /* Nuke */ = {
+		150913592BA687AF00236E14 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED83EE9B29B06A4C007A4FC9 /* XCRemoteSwiftPackageReference "Nuke" */;
+			package = 150913582BA687AF00236E14 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
+		};
+		1509135B2BA687AF00236E14 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 150913582BA687AF00236E14 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		1509135D2BA687AF00236E14 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 150913582BA687AF00236E14 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		1509135F2BA687AF00236E14 /* NukeVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 150913582BA687AF00236E14 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeVideo;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
