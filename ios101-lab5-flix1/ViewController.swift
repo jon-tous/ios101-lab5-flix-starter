@@ -9,26 +9,27 @@ import Nuke
 class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        print("🍏 numberOfRowsInSection called with movies count: \(movies.count)")
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("🍏 cellForRowAt called for row: \(indexPath.row)")
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Row \(indexPath.row)"
+        let movie = movies[indexPath.row]
+        cell.textLabel?.text = movie.title
         return cell
     }
 
     @IBOutlet weak var tableView: UITableView!
     
-    // TODO: Add property to store fetched movies array
+    private var movies: [Movie] = []
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: Assign table view data source
         tableView.dataSource = self
-
 
         fetchMovies()
     }
@@ -86,9 +87,9 @@ class ViewController: UIViewController, UITableViewDataSource {
                         print("Overview: \(movie.overview)")
                     }
 
-                    // TODO: Store movies in the `movies` property on the view controller
-
-
+                    print("🍏 Fetched and stored \(movies.count) movies")
+                    self?.movies = movies
+                    self?.tableView.reloadData()
 
                 }
             } catch {
