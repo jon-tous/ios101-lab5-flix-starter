@@ -9,14 +9,18 @@ import Nuke
 // TODO: Add table view data source conformance
 class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        50
+        print("🍏 numberOfRowsInSection called with movies count: \(movies.count)")
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        cell.textLabel?.text = "Row \(indexPath.row)"
+        let movie = movies[indexPath.row]
         
+        cell.textLabel?.text = movie.title
+        
+        print("🍏 cellForRowAt called for row: \(indexPath.row)")
         return cell
     }
     
@@ -27,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
 
     // TODO: Add property to store fetched movies array
+    private var movies: [Movie] = []
 
 
     override func viewDidLoad() {
@@ -93,7 +98,9 @@ class ViewController: UIViewController, UITableViewDataSource {
                     }
 
                     // TODO: Store movies in the `movies` property on the view controller
-
+                    self?.movies = movies
+                    print("🍏 Fetched and stored \(movies.count) movies")
+                    self?.tableView.reloadData()
 
 
                 }
