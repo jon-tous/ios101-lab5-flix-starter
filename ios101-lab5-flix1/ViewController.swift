@@ -14,13 +14,21 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        print("🍏 cellForRowAt called for row: \(indexPath.row)")
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
         let movie = movies[indexPath.row]
         
-        cell.textLabel?.text = movie.title
+        if let posterPath = movie.poster_path {
+            if let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath) {
+                Nuke.loadImage(with: imageUrl, into: cell.posterImageView)
+            }
+        }
         
-        print("🍏 cellForRowAt called for row: \(indexPath.row)")
+        cell.titleLabel.text = movie.title
+        cell.overviewLabel.text = movie.overview
+        
         return cell
     }
     
